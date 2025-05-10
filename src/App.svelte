@@ -1,57 +1,65 @@
 <script lang="ts">
-    import kittyIcon from './assets/kitty.svg'
-    import {untrack} from "svelte";
+    import {onMount, untrack} from "svelte";
+    import About from "./lib/About.svelte";
+    import Keyboard from "./lib/Keyboard.svelte";
+    import {apiClient, type Results} from "./lib/client";
+    import NowPlaying from "./lib/NowPlaying.svelte";
 
-    let title = $state("about")
     let timing = $state(0)
+    let title = $derived(
+        timing < 7 ? "~" :
+            "now-playing"
+    )
+    let listening: Results | null = $state(null)
 
-    $effect(() => {
+    onMount(() => {
         const clear = setInterval(() => {
-            //because our code is sad and uses state in an effect we put this in an "untrack" block which
-            // prevents us from triggering an infinite loop of effects https://svelte.dev/docs/svelte/$effect
-            untrack(() => {
-                timing++;
-                if(timing >= 10) clearInterval(clear)
-            });
-        }, 500);
+            timing++;
+            if(timing >= 10) clearInterval(clear)
+        }, 250);
 
         return () => { clearInterval(clear) };
     });
-
+    onMount(async () => {
+        listening = await apiClient.getServerStatus()
+    })
 </script>
 
 <main>
     <div class="bound-box">
         <div class="terminal top">
-            taylor@tayy.dev - {title}
+            taylor@tayy.dev: {title}
         </div>
         <div class="terminal bottom">
-            taylor@tayy.dev:~$: whoami
-            <div class="right">
-                <div class="bubble">
-                    {"_____________________________________________        "}<br>
-                    {"| heyy, i'm tay                               |       "}<br>
-                    {"|                                             |       "}<br>
-                    {"| looking for ethan?"}
-                    <a href="https://esouth.dev">check out my other site</a> {" |       "}<br>
-                    {"|___________________________________________  |       "}<br>
-                    {"\\|       "}<br>
-                    <img src={kittyIcon} class="logo svelte" alt="taylor circa 2025" />
-                    {" "}
-                </div>
-            </div>
-            taylor@tayy.dev:~$: now-playing
+            <noscript> <!--TODO: confirm Javascript free loads -->
+                taylor@tayy.dev:~$: whoami
+                <About/>
+                taylor@tayy.dev:~$: now-playing
+                &lt;ERROR&gt; js is disabled
+                taylor@tayy.dev:~$: {"█"}
+            </noscript>
+
+            taylor@tayy.dev:~$:&nbsp;<Keyboard
+                text="whoami"
+                speed={50}
+        />{#if timing >= 2}
+            <About/>{/if}{#if timing >= 3}
+            taylor@tayy.dev:~$:&nbsp;
+        {/if}{#if timing >= 4}<Keyboard
+                text="now-playing"
+                speed={50}
+        />{/if}{#if timing >= 7}
+            <div></div>
+        {/if}{#if timing <= 8}
+            {"█"}
+        {:else}
+            <NowPlaying {listening}></NowPlaying>
+        {/if}
         </div>
     </div>
 </main>
 
 <style>
-    .logo {
-        height: 7em;
-        will-change: filter;
-        transition: filter 300ms;
-    }
-
     .terminal {
         background: #e5fbe5;
         min-width: 40rem;
@@ -69,16 +77,7 @@
         background: #151915;
         text-align: left;
         padding: 0.5rem;
-    }
 
-    .right {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .bubble {
-        text-align: right;
-        display: block;
-        white-space: pre
+        min-height: 21rem;
     }
 </style>
