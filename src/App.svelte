@@ -72,6 +72,8 @@
     .terminal {
         background: #e5fbe5;
         min-width: 40rem;
+        width: 40rem;
+        box-sizing: border-box;
     }
 
     .terminal.top {
@@ -88,5 +90,21 @@
         padding: 0.5rem;
 
         min-height: 21rem;
+    }
+
+    @media screen and (max-width: 768px) {
+        .bound-box {
+            transform-origin: top center;
+            transform: scale(0.8);
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0 auto;
+        }
+
+        .terminal {
+            width: 40rem;
+            min-width: 40rem;
+            margin: 0 auto;
+        }
     }
 </style>
