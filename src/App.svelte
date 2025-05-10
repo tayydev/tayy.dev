@@ -20,8 +20,17 @@
 
         return () => { clearInterval(clear) };
     });
+    //initial load
     onMount(async () => {
         listening = await apiClient.getServerStatus()
+    })
+    //refresh load
+    onMount(() => {
+        const refreshInterval = setInterval(async () => {
+            listening = await apiClient.getServerStatus()
+        }, 30000);
+
+        return () => { clearInterval(refreshInterval) };
     })
 </script>
 

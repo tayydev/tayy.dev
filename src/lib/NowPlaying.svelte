@@ -4,6 +4,7 @@
     let { listening }: {listening: Results | null} = $props()
 
     const frames = "▁▂▃▄▅▆▇█▇▆▅▄▃▂▁";
+    const failed = "--\\\\||/   /";
     let currentFrame = $state(0);
 
     onMount(() => {
@@ -17,8 +18,10 @@
 </script>
 
 <main>
-    {#if listening}
+    {#if listening && listening.playing}
         ♪ Listening to {listening.title} - {listening.artist}
         {frames[(currentFrame + 20) % frames.length]}{frames[currentFrame]}{frames[(currentFrame + 2) % frames.length]}
+    {:else}
+        ...tayy doesn't seem to be listening to music right now {failed[currentFrame % 8 ]}
     {/if}
 </main>
