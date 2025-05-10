@@ -8,25 +8,26 @@
       tayy@dev - about
     </div>
     <div class="terminal bottom">
-      tayy@dev~: whoami <br/>
-      <img src={kittyIcon} class="logo svelte" style="fill: #e5fbe5; stroke: #e5fbe5" alt="Svelte Logo" />
+      tayy@dev:~$: whoami
+      <div class="right">
+        <div class="bubble">
+          {"_____________________________________________        "}<br>
+          {"| heyy, i'm tay                               |       "}<br>
+          {"|                                             |       "}<br>
+          {"| looking for ethan?"} <a href="https://esouth.dev">check out my other site</a> {" |       "}<br>
+          {"|___________________________________________  |       "}<br>
+          {"\\|       "}<br>
+          <img src={kittyIcon} class="logo svelte" alt="taylor circa 2025" />
+        </div>
+      </div>
+      tayy@dev:~$: now-playing
     </div>
   </div>
-
-<!--  <p>-->
-<!--    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the-->
-<!--    official Svelte app framework powered by Vite!-->
-<!--  </p>-->
-
-<!--  <p class="read-the-docs">-->
-<!--    Click on the Vite and Svelte logos to learn more-->
-<!--  </p>-->
 </main>
 
 <style>
   .logo {
     height: 10em;
-    padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
   }
@@ -48,5 +49,16 @@
     background: #151915;
     text-align: left;
     padding: 0.5rem;
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .bubble {
+    text-align: right;
+    display: block;
+    white-space: pre
   }
 </style>
