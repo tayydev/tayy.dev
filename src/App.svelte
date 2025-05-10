@@ -3,43 +3,50 @@
 </script>
 
 <main>
-  <div>
-    <a href="https://vite.dev" target="_blank" rel="noreferrer">
-<!--      <img src={viteLogo} class="logo" alt="Vite Logo" />-->
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={kittyIcon} class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-<!--    <Counter />-->
+  <div class="bound-box">
+    <div class="terminal top">
+      tayy@dev - about
+    </div>
+    <div class="terminal bottom">
+      tayy@dev~: whoami <br/>
+      <img src={kittyIcon} class="logo svelte" style="fill: #e5fbe5; stroke: #e5fbe5" alt="Svelte Logo" />
+    </div>
   </div>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
+<!--  <p>-->
+<!--    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the-->
+<!--    official Svelte app framework powered by Vite!-->
+<!--  </p>-->
 
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+<!--  <p class="read-the-docs">-->
+<!--    Click on the Vite and Svelte logos to learn more-->
+<!--  </p>-->
 </main>
 
 <style>
   .logo {
-    height: 6em;
+    height: 10em;
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+
+  .terminal {
+    background: #e5fbe5;
+    min-width: 40rem;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+
+  .terminal.top {
+    border: solid 1px black;
+    border-bottom: none;
   }
-  .read-the-docs {
-    color: #888;
+
+  .terminal.bottom {
+    border: solid 1px black;
+
+    color: #e5fbe5;
+    background: #151915;
+    text-align: left;
+    padding: 0.5rem;
   }
 </style>
