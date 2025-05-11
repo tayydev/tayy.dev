@@ -41,19 +41,19 @@
         </div>
         <div class="terminal bottom">
             <noscript> <!--TODO: confirm Javascript free loads -->
-                taylor@tayy.dev:~$: whoami
+                taylor@tayy.dev:~$ whoami
                 <About/>
-                taylor@tayy.dev:~$: now-playing
+                taylor@tayy.dev:~$ now-playing
                 &lt;ERROR&gt; js is disabled
-                taylor@tayy.dev:~$: {"█"}
+                taylor@tayy.dev:~$ {"█"}
             </noscript>
 
-            taylor@tayy.dev:~$:&nbsp;<Keyboard
+            taylor@tayy.dev:~$&nbsp;<Keyboard
                 text="whoami"
                 speed={50}
         />{#if timing >= 2}
             <About/>{/if}{#if timing >= 3}
-            taylor@tayy.dev:~$:&nbsp;
+            taylor@tayy.dev:~$&nbsp;
         {/if}{#if timing >= 4}<Keyboard
                 text="now-playing"
                 speed={50}
