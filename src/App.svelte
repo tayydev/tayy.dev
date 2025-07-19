@@ -70,7 +70,7 @@
 
 <style>
     .terminal {
-        background: #e5fbe5;
+        background: #e8f1da;
         min-width: 40rem;
         width: 40rem;
         box-sizing: border-box;
@@ -84,7 +84,7 @@
     .terminal.bottom {
         border: solid 1px black;
 
-        color: #e5fbe5;
+        color: #e8f1da;
         background: #1e1e1e;
         text-align: left;
         padding: 0.5rem;
