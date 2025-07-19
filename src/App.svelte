@@ -85,7 +85,7 @@
         border: solid 1px black;
 
         color: #e5fbe5;
-        background: #151915;
+        background: #1e1e1e;
         text-align: left;
         padding: 0.5rem;
 
