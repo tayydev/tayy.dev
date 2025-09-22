@@ -8,8 +8,8 @@ import kittyIcon from "../assets/kitty.svg";
             {"_____________________________________________        "}<br>
             {"| heyy, i'm tay                               |       "}<br>
             {"|                                             |       "}<br>
-            {"| looking for ethan?"}
-            <a href="https://esouth.dev">check out my other site</a> {" |       "}<br>
+            {"| looking for something more professional?    |       "}<br>
+            {"|   →"} <a href="https://tsouth.dev">check my other site</a> {"                    |       "}<br>
             {"|___________________________________________  |       "}<br>
             {"\\|       "}<br>
             <img src={kittyIcon} class="logo svelte" alt="taylor circa 2025" />
