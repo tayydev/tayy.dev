@@ -89,7 +89,7 @@
         text-align: left;
         padding: 0.5rem;
 
-        min-height: 22rem;
+        min-height: 23.5rem;
     }
 
     @media screen and (max-width: 768px) {
